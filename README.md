@@ -1,12 +1,12 @@
 # OWARCHY
 
-> The screensavers were dope as fuck, so I made them save my desktop. 😉
+> The screensavers were dope as hell, so I made them save my desktop. 😉
 
-DHH pronounces Omarchy "Omachy," so of course I called this **OWARCHY**, pronounced **"owachy."** I'm warchin' the screensavers. You're warchin' the screensavers. Nobody's pronouncing the fucking R.
+DHH pronounces Omarchy "Omachy," so of course I called this **OWARCHY**, pronounced **"owachy."** I'm warchin' the screensavers. You're warchin' the screensavers. Everybody's pronouncing damn the R.
 
 Omarchy has excellent taste in screensavers and a questionable policy of waiting until you stop using the computer to show them to you. I gave them the day shift.
 
-OWARCHY runs Omarchy's actual `ttfx` screensaver effects as your desktop background, behind your windows. Now your inbox can have a black hole behind it. Finally, an accurate visual representation of email.
+OWARCHY runs Omarchy's actual `ttfx` screensaver effects as your desktop background, behind your windows. Now your inbox can have a black hole behind it. Finally... An accurate visual representation of email.
 
 > **0.1.0 community preview:** Expect rough edges and check the requirements below. Omarchy plugins run with your user permissions, not in a sandbox; review the source before installing or enabling one.
 
