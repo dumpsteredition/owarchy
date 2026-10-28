@@ -9,4 +9,4 @@ OWARCHY is built for the Omarchy plugin interface and runs in [Quickshell](https
 - [Wayland](https://wayland.freedesktop.org/) client libraries
 - JetBrainsMono Nerd Font or another installed font configuration that can render the selected effects
 
-The repository’s proposed MIT license applies to OWARCHY-authored code only. It does not relicense these dependencies or other upstream projects; each retains its own license and trademarks. Check the linked upstream project or distribution package for its current terms.
+The repository’s MIT license applies to OWARCHY-authored code only. It does not relicense these dependencies or other upstream projects; each retains its own license and trademarks. Check the linked upstream project or distribution package for its current terms.

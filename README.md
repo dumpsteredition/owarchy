@@ -8,7 +8,7 @@ Omarchy has excellent taste in screensavers and a questionable policy of waiting
 
 OWARCHY runs Omarchy's actual `ttfx` screensaver effects as your desktop background, behind your windows. Now your inbox can have a black hole behind it. Finally, an accurate visual representation of email.
 
-> **0.1.0 community preview:** This package isn't public yet. The GitHub URL below is the planned home, not a live download. Omarchy plugins run with your user permissions, not in a sandbox; review the source before installing or enabling one.
+> **0.1.0 community preview:** Expect rough edges and check the requirements below. Omarchy plugins run with your user permissions, not in a sandbox; review the source before installing or enabling one.
 
 ![OWARCHY's effect picker over a running Blackhole background](preview.png)
 
@@ -40,9 +40,9 @@ make check
 
 `make check` builds the helper and runs the Python package tests. `make clean` removes the generated helper and local Python bytecode caches.
 
-## Install after publication
+## Install
 
-The repository URL below is planned, not published yet. Once it's public, add it **without `--enable`**. If Omarchy asks whether to enable the plugin during `add`, decline; build and validate it first.
+Add the plugin **without `--enable`**. If Omarchy asks whether to enable the plugin during `add`, decline; build and validate it first.
 
 ```sh
 omarchy plugin add https://github.com/dumpsteredition/owarchy.git

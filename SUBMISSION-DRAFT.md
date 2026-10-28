@@ -2,9 +2,9 @@ Proposed issue title: `[Plugin]: OWARCHY`
 
 ### Repository URL
 
-Proposed only: https://github.com/dumpsteredition/owarchy
+https://github.com/dumpsteredition/owarchy
 
-This repository is not published. Do not submit until the public root URL and exact repository contents have been checked.
+This listing has not been submitted. Review the final issue body and owner checklist before posting it; publishing the repository does not publish a marketplace listing.
 
 ### Category
 
@@ -20,7 +20,7 @@ _No response_
 
 ### Maintainer notes
 
-OWARCHY 0.1.0 community-preview source package. The proposed repository name is not published. At intake, the public marketplace `registry.json` (including `retiredPluginIds` and nested sources) contained no `OWARCHY` substring; this is a point-in-time collision check, not a permanent reservation. Recheck the exact permanent plugin ID immediately before any submission. The marketplace's validation and approval are separate from a security review; plugins run unsandboxed.
+OWARCHY 0.1.0 community preview, plugin ID `io.github.dumpsteredition.owarchy`. The native input-region helper must be built from the included source before enabling the plugin; dependencies and build/install/removal steps are documented in the README. Recheck the exact plugin ID against the current registry immediately before submission. Marketplace validation and approval are separate from a security review; plugins run unsandboxed.
 
 ### Submission checklist
 
