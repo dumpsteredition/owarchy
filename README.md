@@ -10,7 +10,7 @@ OWARCHY runs Omarchy's actual `ttfx` screensaver effects as your desktop backgro
 
 > **0.1.0 community preview:** Expect rough edges and check the requirements below. Omarchy plugins run with your user permissions, not in a sandbox; review the source before installing or enabling one.
 
-![OWARCHY's effect picker over a running Blackhole background](preview.png)
+![Real desktop recording: animated wallpaper behind opening and tiling terminal windows](demo.gif)
 
 ## How to warch
 
@@ -20,6 +20,8 @@ OWARCHY runs Omarchy's actual `ttfx` screensaver effects as your desktop backgro
 - **Had enough:** switch it off and your normal wallpaper comes back.
 
 Fresh installs start **off**, with a few effects already selected. Your desktop doesn't get ambushed just because you installed a plugin. If you deselect every effect, the animation stays paused until you choose one.
+
+![OWARCHY's effect picker over a running Blackhole background](preview.png)
 
 ## Requirements (yes, the wallpaper has dependencies)
 
