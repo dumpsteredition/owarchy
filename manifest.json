@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.dumpsteredition.owarchy",
+  "name": "OWARCHY",
+  "version": "0.1.0",
+  "author": "OWARCHY contributors",
+  "description": "An animated terminal-text screensaver background for Omarchy.",
+  "kinds": ["service", "bar-widget", "panel"],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "engine/Engine.qml",
+    "barWidget": "OwarchyWidget.qml",
+    "panel": "OwarchySettings.qml"
+  },
+  "barWidget": {
+    "displayName": "OWARCHY",
+    "description": "Toggle the animated background and choose its effects.",
+    "category": "Appearance",
+    "defaultSection": "right",
+    "allowMultiple": false
+  }
+}

@@ -1,0 +1,10 @@
+# Local build output
+*.so
+__pycache__/
+*.py[cod]
+
+# Local proof and packaging output
+evidence/
+dist/
+*.log
+.coverage
