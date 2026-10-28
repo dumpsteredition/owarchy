@@ -1,19 +1,27 @@
 # OWARCHY
 
-**OWARCHY — “warchin’ all the cool screensavers” — puts animated terminal-text effects on your Omarchy desktop as a live wallpaper.** Click the circle in the right side of the bar to turn it on or off; use the gear to open settings, choose effects, and set how often they rotate. A fresh setup starts **off**.
+> The screensavers were dope as fuck, so I made them save my desktop. 😉
 
-> **Community preview (0.1.0):** The proposed repository and marketplace listing are not yet public, and the plugin ID is not permanently reserved. Omarchy plugins run with your user permissions rather than in a sandbox; review the source before installing or enabling it.
+DHH pronounces Omarchy "Omachy," so of course I called this **OWARCHY**, pronounced **"owachy."** I'm warchin' the screensavers. You're warchin' the screensavers. Nobody's pronouncing the fucking R.
 
-## What it does
+Omarchy has excellent taste in screensavers and a questionable policy of waiting until you stop using the computer to show them to you. I gave them the day shift.
 
-- Adds a circle toggle and settings button to Omarchy’s right-hand bar.
-- Lets you choose which installed `ttfx` effects rotate and set the interval (45 seconds by default; available curated effects are selected for a fresh setup).
-- Starts the wallpaper layer only when OWARCHY is enabled and at least one effect is selected. The default is off.
-- Stores OWARCHY’s settings in `${XDG_CONFIG_HOME}/omarchy/owarchy.json` when `XDG_CONFIG_HOME` is absolute, or `$HOME/.config/omarchy/owarchy.json` otherwise.
+OWARCHY runs Omarchy's actual `ttfx` screensaver effects as your desktop background, behind your windows. Now your inbox can have a black hole behind it. Finally, an accurate visual representation of email.
 
-**Settings and plugin files use different paths.** OWARCHY settings honor `XDG_CONFIG_HOME`; Omarchy installs plugins under `$HOME/.config/omarchy/plugins` even when `XDG_CONFIG_HOME` is set.
+> **0.1.0 community preview:** This package isn't public yet. The GitHub URL below is the planned home, not a live download. Omarchy plugins run with your user permissions, not in a sandbox; review the source before installing or enabling one.
 
-## Requirements and local checks
+![OWARCHY's effect picker over a running Blackhole background](preview.png)
+
+## How to warch
+
+- **Circle in the bar:** turn the animated background on or off.
+- **Gear next to it:** open settings, pick your effects, and change the rotation interval.
+- **One effect or a whole mix:** choose from the effects your installed `ttfx` provides. The default rotation interval is 45 seconds.
+- **Had enough:** switch it off and your normal wallpaper comes back.
+
+Fresh installs start **off**, with a few effects already selected. Your desktop doesn't get ambushed just because you installed a plugin. If you deselect every effect, the animation stays paused until you choose one.
+
+## Requirements (yes, the wallpaper has dependencies)
 
 On Arch/Omarchy, install the runtime and build dependencies with:
 
@@ -21,9 +29,9 @@ On Arch/Omarchy, install the runtime and build dependencies with:
 omarchy pkg add vte3 gtk-layer-shell python-gobject gtk3 wayland gcc make pkgconf ttfx
 ```
 
-This uses Omarchy’s package helper; it does not install anything during plugin validation. A Wayland Omarchy/Quickshell session is required to run the wallpaper. `make helper` builds the bundled C input-region helper from source; no prebuilt helper is included.
+You'll need a Wayland Omarchy/Quickshell session to run it. The small C helper builds from the included source; there's no mystery binary from my laptop in the package. OWARCHY doesn't install system packages behind your back.
 
-From a source checkout, build and run the focused package checks with:
+From a source checkout or the unpacked source archive:
 
 ```sh
 make helper
@@ -34,13 +42,13 @@ make check
 
 ## Install after publication
 
-The repository URL below is proposed and is not yet published. Once an owner-approved public repository is available, add it without `--enable`. If Omarchy asks whether to enable the plugin during `add`, decline; build and validate it first.
+The repository URL below is planned, not published yet. Once it's public, add it **without `--enable`**. If Omarchy asks whether to enable the plugin during `add`, decline; build and validate it first.
 
 ```sh
 omarchy plugin add https://github.com/dumpsteredition/owarchy.git
 ```
 
-The installed plugin path is fixed by Omarchy’s installer, not by `XDG_CONFIG_HOME`. Build and validate the installed tree, review it, then explicitly enable it:
+Omarchy installs the plugin under `$HOME/.config/omarchy/plugins`, even if you've set `XDG_CONFIG_HOME`. Build and validate that installed copy, review it, then enable it:
 
 ```sh
 plugin_id='io.github.dumpsteredition.owarchy'
@@ -53,11 +61,11 @@ omarchy plugin validate "$plugin_dir"
 omarchy plugin enable "$plugin_id"
 ```
 
-Validation checks the Omarchy manifest and entry-point layout; it does not build the native helper or review plugin security.
+Validation checks the manifest and entry-point layout. It doesn't build the helper or review the code's security.
 
 ## Update
 
-Disable before updating. Omarchy still keeps the plugin under `$HOME/.config/omarchy/plugins`, regardless of `XDG_CONFIG_HOME`:
+Switch the plugin off before updating, then rebuild the helper and re-enable it. Same folder as before; `XDG_CONFIG_HOME` doesn't move Omarchy's plugin installation.
 
 ```sh
 plugin_id='io.github.dumpsteredition.owarchy'
@@ -72,9 +80,11 @@ omarchy plugin validate "$plugin_dir"
 omarchy plugin enable "$plugin_id"
 ```
 
-A plugin update is separate from any future marketplace listing or review.
+A plugin update is separate from any marketplace listing or review.
 
-## Disable, remove, and settings
+## Unwarch
+
+You can turn the animation off with the bar's circle. To disable and remove the plugin entirely:
 
 ```sh
 plugin_id='io.github.dumpsteredition.owarchy'
@@ -82,7 +92,13 @@ omarchy plugin disable "$plugin_id"
 omarchy plugin remove "$plugin_id"
 ```
 
-Removing the plugin leaves OWARCHY’s settings in place. To remove only its settings and lock file, use the settings path (which does honor `XDG_CONFIG_HOME`):
+Your wallpaper survives the breakup. OWARCHY's settings stay too, in case this was just a rough patch.
+
+### Where the settings live
+
+OWARCHY uses `${XDG_CONFIG_HOME}/omarchy/owarchy.json` when `XDG_CONFIG_HOME` is absolute, or `$HOME/.config/omarchy/owarchy.json` otherwise. Unlike the plugin's installation folder, **the settings path does honor `XDG_CONFIG_HOME`.**
+
+If you're sure you're done, remove only OWARCHY's settings and lock file after disabling/removing the plugin:
 
 ```sh
 config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -91,8 +107,16 @@ rm -f -- "$config_home/omarchy/owarchy.json" \
   "$config_home/omarchy/owarchy.json.lock"
 ```
 
-OWARCHY does not import the old local prototype’s `screensaver-wallpaper.json`. If you migrate preferences manually, do not overwrite an existing `owarchy.json`; copy only the effect selections and rotation interval you want, and set `enabled` to `false` rather than carrying over the old enabled state. Disable the old prototype before enabling OWARCHY.
+The old local prototype used `screensaver-wallpaper.json`; OWARCHY doesn't import it automatically. To migrate manually, copy only the effect selections and rotation interval you want, keep `enabled` set to `false`, and don't overwrite existing `owarchy.json` settings. Disable the old prototype before enabling OWARCHY. We don't need two wallpapers fighting for custody of the desktop.
 
-## Limits
+## Limits, before we get carried away
 
-The animation loop currently targets 120 FPS; that target is not a promise of 120 displayed FPS. Actual frame rate and system load depend on the machine, compositor, and selected effect. There is no thermal-performance guarantee or multi-monitor certification. `make check` is a focused source/package check, not a compositor-session or performance certification.
+The animation loop targets 120 FPS. That isn't a promise of 120 displayed FPS; your machine, compositor, and selected effect still get a vote. There isn't a thermal-performance guarantee or multi-monitor certification. This is wallpaper, not a cooling system.
+
+`make check` covers the source/package checks. It isn't a compositor-session or performance certification. This is a community preview. Bug reports from other setups are welcome; include your Omarchy version, display setup, and selected effect so we can reproduce the problem.
+
+## Credit where it's due
+
+The effects come from [`ttfx`](https://github.com/omacom-io/ttfx), the Rust port of [TerminalTextEffects](https://github.com/ChrisBuilds/terminaltexteffects). [Omarchy](https://github.com/omacom/omarchy) supplied the desktop and the reason I wanted to stare at it. OWARCHY gives those screensavers a bar switch and a job while you're still at the keyboard.
+
+See [CREDITS.md](CREDITS.md) for the dependencies and [LICENSE](LICENSE) for OWARCHY's MIT license. Neither the name nor the missing R implies an official Omarchy endorsement.
